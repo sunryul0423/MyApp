@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:strokeColor="@color/darkGray"
+            app:strokeWidth="@dimen/line_size">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <include
+                    android:id="@+id/lottoView"
+                    layout="@layout/item_lotto_value" />
+
+            <TextView
+                    android:id="@+id/tvWinnerCnt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvWinnerPrice"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lottoView"
+                    tools:text="1등 당첨자 : 18명" />
+
+            <TextView
+                    android:id="@+id/tvWinnerPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvWinnerCnt"
+                    app:layout_constraintTop_toBottomOf="@+id/lottoView"
+                    tools:text="1등 당첨금 : 1,111,111,111원" />
+
+            <View
+                    android:id="@+id/btnLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:layout_marginTop="@dimen/lotto_view_margin"
+                    android:background="@color/darkGray"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWinnerPrice" />
+
+            <TextView
+                    android:id="@+id/btnLottoCheck"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_confirm"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/lotto_winner_check"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/view_line"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLine" />
+
+            <View
+                    android:id="@+id/view_line"
+                    android:layout_width="@dimen/line_size"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toStartOf="@+id/btnLottoDetail"
+                    app:layout_constraintStart_toEndOf="@+id/btnLottoCheck"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLine" />
+
+            <TextView
+                    android:id="@+id/btnLottoDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_confirm"
+                    android:fontFamily="sans-serif-black"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/lotto_winner_detail"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/view_line"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLine" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

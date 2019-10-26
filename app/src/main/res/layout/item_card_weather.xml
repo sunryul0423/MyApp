@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp"
+            app:strokeColor="@color/darkGray"
+            app:strokeWidth="@dimen/line_size">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/weather_view_margin"
+                tools:ignore="MissingConstraints">
+
+            <ImageView
+                    android:id="@+id/ivStatus"
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:contentDescription="@null"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTemperature"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivStatus"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="중구" />
+
+            <TextView
+                    android:id="@+id/tvTemperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="40sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvMinMax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivStatus"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAddress"
+                    tools:text="22℃" />
+
+            <TextView
+                    android:id="@+id/tvMinMax"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivStatus"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTemperature"
+                    tools:text="22˚ / 25˚" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnUpdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:padding="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                    android:id="@+id/ivSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@null"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/ic_sync"
+                    tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

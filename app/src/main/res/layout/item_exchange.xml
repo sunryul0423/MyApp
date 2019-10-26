@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+        <TextView
+                android:id="@+id/tvTargetNation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_usa"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/tvTargetPrice"
+                app:layout_constraintEnd_toStartOf="@+id/tvEqual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="미국 USD" />
+
+        <TextView
+                android:id="@+id/tvTargetPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvChangePrice"
+                app:layout_constraintEnd_toStartOf="@+id/tvEqual"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTargetNation"
+                tools:text="1달러" />
+
+
+        <TextView
+                android:id="@+id/tvEqual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/equal"
+                android:textSize="30sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvChangePrice"
+                app:layout_constraintEnd_toStartOf="@+id/tvKorea"
+                app:layout_constraintStart_toEndOf="@+id/tvTargetNation"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tvKorea"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icon_korea"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/exchange_korea_title"
+                app:layout_constraintBottom_toTopOf="@+id/tvKoreaPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvEqual"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tvKoreaPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvChangePrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvEqual"
+                app:layout_constraintTop_toBottomOf="@+id/tvKorea"
+                tools:text="1194.50원" />
+
+        <TextView
+                android:id="@+id/tvChangePrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:text="전일대비 : ▼5.50 (-0.46%)" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

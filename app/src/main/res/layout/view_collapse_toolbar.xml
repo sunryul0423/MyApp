@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapseBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/black"
+                app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Title"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="top"
+                app:expandedTitleMarginStart="160dp"
+                app:expandedTitleTextAppearance="@style/CollapsedAppBarStyle"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_collapseMode="parallax"
+                    tools:ignore="MissingConstraints,RtlSymmetry">
+
+                <ImageView
+                        android:id="@+id/ivMovie"
+                        android:layout_width="150dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@null"
+                        android:scaleType="fitXY"
+                        android:src="@color/gray"
+                        android:transitionName="posterThumb"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/movie_item_margin"
+                        android:layout_marginTop="?actionBarSize"
+                        android:layout_marginEnd="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ivMovie"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                            android:id="@+id/tvSubTitle"
+                            style="@style/MovieDetailTextStyle"
+                            android:layout_marginTop="5dp"
+                            android:ellipsize="end"
+                            android:maxLines="2"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="sub_title" />
+
+                    <TextView
+                            android:id="@+id/tvOpenDt"
+                            style="@style/MovieDetailTextStyle"
+                            android:layout_marginTop="35dp"
+                            app:layout_constraintTop_toBottomOf="@+id/tvSubTitle"
+                            tools:text="개봉일 : 2019-10-02" />
+
+                    <TextView
+                            android:id="@+id/tvRating"
+                            style="@style/MovieDetailTextStyle"
+                            android:layout_marginTop="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:gravity="center"
+                            app:layout_constraintTop_toBottomOf="@+id/tvOpenDt"
+                            tools:text="4.7" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</layout>

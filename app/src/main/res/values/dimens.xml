@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="line_size">1dp</dimen>
+    <dimen name="btn_radius">30dp</dimen>
+    <dimen name="drawer_layout_height">180dp</dimen>
+    <dimen name="lotto_value_width">35dp</dimen>
+    <dimen name="lotto_view_margin">10dp</dimen>
+    <dimen name="exchange_view_margin">10dp</dimen>
+    <dimen name="shopping_image_w_h">100dp</dimen>
+    <dimen name="shopping_item_margin">10dp</dimen>
+    <dimen name="movie_grid_margin">15dp</dimen>
+    <dimen name="movie_grid_item_margin">5dp</dimen>
+    <dimen name="item_header_padding">10dp</dimen>
+    <dimen name="weather_view_margin">30dp</dimen>
+    <dimen name="movie_item_margin">10dp</dimen>
+
+
+    <!-- TextSize -->
+    <dimen name="lotto_title_size">18sp</dimen>
+    <dimen name="lotto_value_size">20sp</dimen>
+    <dimen name="tv_data_empty">16sp</dimen>
+
+    <dimen name="item_local_text_size">12sp</dimen>
+
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0096D8</color>
+    <color name="colorPrimaryDark">#006EB4</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <!-- 로또 -->
+    <color name="yellow">#FFD000</color>
+    <color name="darkYellow">#9B8100</color>
+    <color name="blue">#0077FF</color>
+    <color name="darkBlue">#004196</color>
+    <color name="red">#DD0000</color>
+    <color name="darkRed">#860000</color>
+    <color name="gray">#DBDBDB</color>
+    <color name="darkGray">#A2A2A2</color>
+    <color name="green">#008B4D</color>
+    <color name="darkGreen">#004426</color>
+
+    <color name="btnCancel">#D9E5E9</color>
+    <color name="btnCancelPress">#B3BCC4</color>
+    <color name="btnConfirm">#E7A39F</color>
+    <color name="btnConfirmDisable">#B5B6BB</color>
+    <color name="btnConfirmPress">#DD867F</color>
+    <color name="lottoBtnColor">#E7A39F</color>
+    <color name="lottoBtnPressColor">#DD867F</color>
+    <color name="sideHeaderColor">#009AD1</color>
+
+    <color name="blackText">#444444</color>
+</resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LoginAppTheme" parent="AppTheme">
+        <item name="android:background">?attr/colorPrimary</item>
+    </style>
+
+    <style name="LottoValueText" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/lotto_value_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HeaderTextViewStyle" parent="@android:style/Widget.TextView">
+        <item name="android:paddingTop">@dimen/item_header_padding</item>
+        <item name="android:paddingBottom">@dimen/item_header_padding</item>
+        <item name="android:textSize">@dimen/item_local_text_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="BtnConfirmStyle" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_confirm</item>
+        <item name="android:textColor">@color/btn_common_text</item>
+    </style>
+
+    <style name="BtnCancelStyle" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_cancel</item>
+        <item name="android:textColor">@color/blackText</item>
+    </style>
+
+    <style name="CollapsedAppBarStyle" parent="@style/TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="MovieDetailTextStyle" parent="@android:style/Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

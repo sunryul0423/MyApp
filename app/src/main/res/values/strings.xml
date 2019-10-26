@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <string name="app_name">잡동사니</string>
+    <string name="logout">로그아웃</string>
+    <string name="cancel">취소</string>
+    <string name="update">업데이트</string>
+    <string name="setting">설정</string>
+    <string name="app_finish_msg">한번 더 누르면 앱이 종료됩니다.</string>
+    <string name="throwable_network_error">네트워크 오류가 발생했습니다. 인터넷 연결을 확인하세요.</string>
+    <string name="throwable_http_code_403">잠시후 시도해 주세요. <![CDATA[(Limit 초과)]]></string>
+    <string name="throwable_socket_timeout">잠시후 시도해 주세요. <![CDATA[(요청시간 초과)]]></string>
+
+    <!-- API_KEY -->
+    <string name="movie_api_key" translatable="false">b268796beb51699a90a680e6370f8fcd</string>
+    <string name="weather_api_key" translatable="false">f03a1e85-2159-465a-baff-cb161558cd03</string>
+    <string name="facebook_application_id" translatable="false">2376596389091698</string>
+    <string name="facebook_login_protocol_scheme" translatable="false">fb2376596389091698</string>
+    <string name="kakao_app_key" translatable="false">57e0a33208ed2e1086cbed946338da10</string>
+
+    <!-- Drawer -->
+    <string name="title_profile">사용자 프로필</string>
+    <string name="title_exchange">환율 정보</string>
+    <string name="title_location">지도</string>
+    <string name="title_lotto_detail">로또 상세</string>
+    <string name="drawer_open">열기</string>
+    <string name="drawer_close">닫기</string>
+    <string name="my_location">내위치</string>
+
+    <!-- Tab -->
+    <string name="tab_item_one">MY</string>
+    <string name="tab_item_two">쇼핑</string>
+    <string name="tab_item_three">영화</string>
+
+    <!-- Lotto -->
+    <string name="lotto_item_title">%d회차 당첨결과(%s)</string>
+    <string name="lotto_winner_rank">%d등</string>
+    <string name="lotto_winner_count">%d명</string>
+    <string name="lotto_first_winner_count">1등 당첨자 : %d명</string>
+    <string name="lotto_first_winner_price">1등 당첨금 : %s</string>
+    <string name="lotto_winner_check">당첨번호 확인</string>
+    <string name="lotto_winner_detail">결과 상세보기</string>
+    <string name="hint_name">이름 입력</string>
+    <string name="hint_email">이메일 입력</string>
+    <string name="hint_password">비밀번호 입력</string>
+    <string name="lotto_notification_title">%d회차 당첨결과</string>
+    <string name="lotto_notification_content">클릭하여 정보를 확인하세요.</string>
+
+    <!-- Exchange -->
+    <string name="exchange_rate">전일대비 : %1$s (%2$s)</string>
+    <string name="exchange_korea_title">대한민국 KRW</string>
+    <string name="equal">=</string>
+    <string name="won">원</string>
+
+    <!-- Shopping -->
+    <string name="shopping_search">상품검색</string>
+    <string name="data_empty_msg">검색 결과가 존재하지 않습니다.</string>
+    <string name="search">검색</string>
+    <string name="record">음성</string>
+    <string name="search_record_ready">음성검색 준비중입니다...</string>
+    <string name="search_record">검색어를 말씀해주세요.</string>
+    <string name="search_record_fail">검색에 실패했습니다."마이크"버튼을 눌러 다시시도 해주세요.</string>
+
+    <!-- Movie -->
+    <string name="movie_open_date">개봉일 : %s</string>
+
+    <!-- Profile -->
+    <string name="profile_name_title">이름 :</string>
+    <string name="profile_email_title">이메일 :</string>
+
+    <!-- Permission -->
+    <string name="system_location_msg">위치 설정이 필요합니다.</string>
+    <string name="permission_read_msg">프로필사진 변경을 위한 저장공간 권한이 필요합니다.</string>
+    <string name="permission_audio_msg">음성검색을 위한 마이크 권한이 필요합니다.</string>
+    <string name="permission_location_msg">지도 사용을 위한 위치 권한이 필요합니다.</string>
+
+    <!-- Weather -->
+    <string name="weather_temp_current">%d℃</string>
+    <string name="weather_temp_min_max">최저 %d˚ / 최고 %d˚</string>
+
+</resources>

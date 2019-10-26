@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".home.activity.MainActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/dl_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    app:contentInsetStart="0dp"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                    tools:ignore="MissingConstraints">
+
+                <ImageView
+                        android:id="@+id/tvHeaderTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/app_icon"
+                        android:visibility="gone" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/searchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible">
+
+                    <EditText
+                            android:id="@+id/etSearchItem"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/shape_search_background"
+                            android:ellipsize="end"
+                            android:hint="@string/shopping_search"
+                            android:imeOptions="actionSearch"
+                            android:importantForAutofill="no"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/action_search"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/action_search"
+                            android:layout_width="48dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="10dp"
+                            android:src="@android:drawable/ic_menu_search"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/action_record"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                            android:id="@+id/action_record"
+                            android:layout_width="48dp"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@null"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_settings_voice"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    app:tabGravity="fill"
+                    app:tabIndicatorColor="@color/colorAccent"
+                    app:tabIndicatorHeight="4dp"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/colorAccent">
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <View
+                    android:id="@+id/tabLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/line_size"
+                    android:background="@color/darkGray"
+                    app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/mainViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tabLine" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navigation_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                app:menu="@menu/drawer" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+
+</layout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.srpark.myapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 지도 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- 갤러리 접근 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 음성인식 STT -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- Notification -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 부팅 완료 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+            android:name=".MyApplication"
+            android:allowBackup="false"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/app_icon"
+            android:label="@string/app_name"
+            android:networkSecurityConfig="@xml/network_security_config"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true"
+            tools:ignore="GoogleAppIndexingWarning"
+            tools:targetApi="n">
+
+        <uses-library
+                android:name="org.apache.http.legacy"
+                android:required="false" />
+
+        <meta-data
+                android:name="movieApiKey"
+                android:value="@string/movie_api_key" />
+        <meta-data
+                android:name="weatherApiKey"
+                android:value="@string/weather_api_key" />
+        <meta-data
+                android:name="com.kakao.sdk.AppKey"
+                android:value="@string/kakao_app_key" />
+
+        <activity android:name=".home.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".home.activity.MainActivity"
+                android:configChanges="screenSize|orientation" />
+        <activity
+                android:name=".slide.activity.ProfileActivity"
+                android:windowSoftInputMode="adjustResize" />
+        <activity
+                android:name=".slide.activity.ExchangeActivity"
+                android:configChanges="screenSize|orientation" />
+        <activity
+                android:name=".home.activity.LottoDetailActivity"
+                android:configChanges="screenSize|orientation" />
+        <activity android:name=".home.activity.WebViewActivity" />
+
+        <activity
+                android:name="com.journeyapps.barcodescanner.CaptureActivity"
+                android:screenOrientation="fullSensor"
+                tools:replace="screenOrientation" />
+        <activity android:name=".slide.activity.LocationActivity" />
+        <activity android:name=".home.activity.MapViewActivity" />
+        <activity android:name=".home.activity.RecordActivity" />
+        <activity android:name=".home.activity.MovieDetailActivity" />
+
+        <service android:name=".sevice.GpsService" />
+        <receiver
+                android:name=".sevice.LottoReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="com.srpark.myapp.action.LOTTO_NOTIFICATION"/>
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

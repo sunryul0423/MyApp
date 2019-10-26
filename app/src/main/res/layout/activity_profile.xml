@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="userVM"
+                type="com.srpark.myapp.home.model.view.UserViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/view_title_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnUpdate"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <FrameLayout
+                        android:id="@+id/flUserImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                            android:id="@+id/ivUserImg"
+                            android:layout_width="108dp"
+                            android:layout_height="108dp"
+                            android:contentDescription="@null"
+                            android:scaleType="fitCenter" />
+
+                    <ImageView
+                            android:id="@+id/ivUserImgPlus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            android:background="@android:drawable/ic_menu_camera"
+                            android:contentDescription="@null" />
+
+                </FrameLayout>
+
+                <TextView
+                        android:id="@+id/tvUserNameTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="48dp"
+                        android:gravity="center"
+                        android:text="@string/profile_name_title"
+                        app:layout_constraintEnd_toStartOf="@+id/etUserName"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/flUserImg" />
+
+                <EditText
+                        android:id="@+id/etUserName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="36dp"
+                        android:hint="@string/hint_name"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintHorizontal_weight="2"
+                        app:layout_constraintStart_toEndOf="@+id/tvUserNameTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/flUserImg"
+                        tools:text="menu" />
+
+                <TextView
+                        android:id="@+id/tvUserEmailTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:gravity="center"
+                        android:text="@string/profile_email_title"
+                        app:layout_constraintEnd_toStartOf="@+id/tvUserEmail"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvUserNameTitle" />
+
+                <TextView
+                        android:id="@+id/tvUserEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+                        app:layout_constraintHorizontal_weight="2"
+                        app:layout_constraintStart_toEndOf="@+id/tvUserEmailTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/etUserName"
+                        tools:text="menu@gmail.com" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+                android:id="@+id/btnUpdate"
+                style="@style/BtnConfirmStyle"
+                android:enabled="false"
+                android:text="@string/update"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

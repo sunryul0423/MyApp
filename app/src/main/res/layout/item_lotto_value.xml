@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+        <TextView
+                android:id="@+id/tvLottoTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/lotto_view_margin"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                android:layout_marginEnd="@dimen/lotto_view_margin"
+                android:textSize="@dimen/lotto_title_size"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tvLottoNo4"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="874회차 당첨결과(2019.08.31)" />
+
+        <TextView
+                android:id="@+id/tvLottoNo1"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoNo2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="1" />
+
+        <TextView
+                android:id="@+id/tvLottoNo2"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoNo3"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo1"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="2" />
+
+        <TextView
+                android:id="@+id/tvLottoNo3"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoNo4"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo2"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="3" />
+
+        <TextView
+                android:id="@+id/tvLottoNo4"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoNo5"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo3"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="4" />
+
+        <TextView
+                android:id="@+id/tvLottoNo5"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoNo6"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo4"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="5" />
+
+        <TextView
+                android:id="@+id/tvLottoNo6"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ivPlus"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo5"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="6" />
+
+        <ImageView
+                android:id="@+id/ivPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                android:background="@drawable/ic_add_black"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvLottoBonus"
+                app:layout_constraintStart_toEndOf="@+id/tvLottoNo6"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle" />
+
+        <TextView
+                android:id="@+id/tvLottoBonus"
+                style="@style/LottoValueText"
+                android:layout_width="@dimen/lotto_value_width"
+                android:layout_height="@dimen/lotto_value_width"
+                android:layout_marginTop="@dimen/lotto_view_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivPlus"
+                app:layout_constraintTop_toBottomOf="@+id/tvLottoTitle"
+                tools:text="45" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

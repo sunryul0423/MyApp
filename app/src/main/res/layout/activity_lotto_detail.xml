@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="lottoPlaceVM"
+                type="com.srpark.myapp.home.model.view.LottoPlaceVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"
+            tools:ignore="MissingConstraints">
+
+        <include
+                android:id="@+id/toolbar"
+                layout="@layout/view_title_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
+
+                <include
+                        android:id="@+id/lottoView"
+                        layout="@layout/item_lotto_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/table_header_background"
+                        app:layout_constraintTop_toBottomOf="@+id/lottoView">
+
+                    <TextView
+                            android:id="@+id/tvRank"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/table_lr_background"
+                            app:layout_constraintEnd_toStartOf="@+id/tvWinnerCnt"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                            android:id="@+id/tvWinnerCnt"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="당첨자수"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toStartOf="@+id/tvWinnerPrice"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintHorizontal_weight="2"
+                            app:layout_constraintStart_toEndOf="@+id/tvRank" />
+
+                    <TextView
+                            android:id="@+id/tvWinnerPrice"
+                            style="@style/HeaderTextViewStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/table_lr_background"
+                            android:text="1인당 당첨금액"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_chainStyle="spread"
+                            app:layout_constraintHorizontal_weight="3"
+                            app:layout_constraintStart_toEndOf="@+id/tvWinnerCnt" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvLottoDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layout_constraintBottom_toTopOf="@+id/tvPlace"
+                        app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+
+                <TextView
+                        android:id="@+id/tvPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/gray"
+                        android:padding="@dimen/item_header_padding"
+                        android:text="1등 당첨 판매점"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintTop_toBottomOf="@+id/rvLottoDetail" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvLottoPlace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layout_constraintTop_toBottomOf="@+id/tvPlace" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
