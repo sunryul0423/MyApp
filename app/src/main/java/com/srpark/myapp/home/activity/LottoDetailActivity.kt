@@ -31,10 +31,11 @@ class LottoDetailActivity : BaseActivity<ActivityLottoDetailBinding>() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val job = Job()
+    private lateinit var job: Job
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        job = Job()
         setToolbar(viewBinding.toolbar.toolbar)
         viewBinding.toolbar.toolbarTitle.text = getString(R.string.title_lotto_detail)
         val lottoPlaceVM = ViewModelProviders.of(this, viewModelFactory).get(LottoPlaceVM::class.java)

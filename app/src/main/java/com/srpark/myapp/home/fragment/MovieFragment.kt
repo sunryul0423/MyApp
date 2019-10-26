@@ -36,7 +36,7 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val job = Job()
+    private lateinit var job: Job
 
     companion object {
         private val movieFragment = MovieFragment()
@@ -49,6 +49,11 @@ class MovieFragment : BaseFragment<FragmentMovieBinding>() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mContext = context
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        job = Job()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

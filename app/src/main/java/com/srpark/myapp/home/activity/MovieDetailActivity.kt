@@ -29,7 +29,7 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         val item = intent.getSerializableExtra(INTENT_MOVIE_DATA) as Items
         setImageUrl(viewBinding.collapseToolbar.ivMovie, item.image)
         viewBinding.collapseToolbar.tvRating.text = item.userRating.toString()
-
+        viewBinding.collapseToolbar.tvOpenDt.text = String.format(getString(R.string.movie_open_date), item.pubDate)
         liveDataObserver(movieDetailVM, item)
     }
 
@@ -37,7 +37,6 @@ class MovieDetailActivity : BaseActivity<ActivityMovieDetailBinding>() {
         movieDetailVM.getMovieInfo().observe(this, Observer { movieInfo ->
             viewBinding.collapseToolbar.collapseBar.title = movieInfo.movieNm
             viewBinding.collapseToolbar.tvSubTitle.text = movieInfo.movieNmEn
-            viewBinding.collapseToolbar.tvOpenDt.text = String.format(getString(R.string.movie_open_date), movieInfo.openDt)
         })
         movieDetailVM.getProgress().observe(this, Observer {
             if (it) {

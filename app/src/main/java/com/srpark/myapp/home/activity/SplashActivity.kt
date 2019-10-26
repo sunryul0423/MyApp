@@ -19,7 +19,7 @@ import srpark.rxactivity2.permission.RxPermission
 import kotlin.coroutines.CoroutineContext
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>(), CoroutineScope {
-    private val job = Job()
+    private lateinit var job: Job
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
 
@@ -37,6 +37,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(), CoroutineScope {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        job = Job()
         alertDialog = AlertDialog.Builder(this@SplashActivity)
             .setPositiveButton(getString(R.string.setting)) { _, _ ->
                 var intent: Intent? = null

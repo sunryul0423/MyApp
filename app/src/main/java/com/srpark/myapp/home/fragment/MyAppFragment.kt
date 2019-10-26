@@ -52,7 +52,7 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    private val job = Job()
+    private lateinit var job: Job
 
     companion object {
         private val myAppFragment = MyAppFragment()
@@ -69,6 +69,7 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext.startService(Intent(mContext, GpsService::class.java))
+        job = Job()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
