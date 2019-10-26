@@ -52,16 +52,21 @@ class MovieViewModel @Inject constructor(
                 }
                 Single.concat(singleList)
             }
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ response ->
-                response.items[0].rank = dailyBoxOfficeList[position].rank
-                response.items[0].title = dailyBoxOfficeList[position].movieNm
-                response.items[0].pubDate = dailyBoxOfficeList[position].openDt
-                response.items[0].movieCd = dailyBoxOfficeList[position].movieCd
+            .map { response ->
+                if (response.items.isNotEmpty()) {
+                    response.items[0].rank = dailyBoxOfficeList[position].rank
+                    response.items[0].title = dailyBoxOfficeList[position].movieNm
+                    response.items[0].pubDate = dailyBoxOfficeList[position].openDt
+                    response.items[0].movieCd = dailyBoxOfficeList[position].movieCd
+                    addItemList.add(response.items[0])
+                }
                 position++
-                addItemList.add(response.items[0])
-                if (singleList.size == addItemList.size) {
-                    itemList.value = addItemList
+                return@map addItemList
+            }
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ list ->
+                if (singleList.size == position) {
+                    itemList.value = list
                     cancelProgress()
                 }
             }, {
