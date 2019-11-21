@@ -2,6 +2,8 @@ package com.srpark.myapp.sevice
 
 import android.Manifest
 import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -30,7 +32,25 @@ class GpsService : DaggerService() {
 
     override fun onCreate() {
         super.onCreate()
-        startForeground(GPS_SERVICE_ID, Notification())
+        when {
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.O -> {
+                val channel =
+                    NotificationChannel(
+                        GPS_SERVICE_ID.toString(),
+                        GPS_SERVICE_ID.toString(),
+                        NotificationManager.IMPORTANCE_HIGH
+                    ).apply {
+                        setShowBadge(false)
+                    }
+                val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
+                val builder = Notification.Builder(this, GPS_SERVICE_ID.toString())
+                startForeground(GPS_SERVICE_ID, builder.build())
+            }
+            else -> {
+                startForeground(GPS_SERVICE_ID, Notification())
+            }
+        }
     }
 
     /**

@@ -18,7 +18,10 @@ import androidx.core.content.ContextCompat
 import com.firebase.ui.auth.AuthUI
 import com.google.android.material.snackbar.Snackbar
 import com.srpark.myapp.R
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.actor
 import retrofit2.HttpException
 import java.io.IOException
@@ -26,7 +29,6 @@ import java.net.SocketTimeoutException
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.coroutines.EmptyCoroutineContext
 
 
 fun showToast(context: Context, msg: String) {

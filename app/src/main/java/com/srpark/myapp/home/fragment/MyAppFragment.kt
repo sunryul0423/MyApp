@@ -56,6 +56,7 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
 
     companion object {
         private val myAppFragment = MyAppFragment()
+        private var CHECK_SERVICE = false
         fun getInstance(): MyAppFragment {
             return myAppFragment
         }
@@ -68,7 +69,6 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mContext.startService(Intent(mContext, GpsService::class.java))
         job = Job()
     }
 
@@ -85,7 +85,6 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
         } else {
             myAppVM.requestWeatherApi()
         }
-
         viewBinding.cardWeather.btnUpdate.onClick(job = job) { checkLocation(myAppVM) }
         return view
     }
@@ -102,6 +101,9 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
                             mContext.unbindService(connect)
                             viewBinding.cardWeather.ivSync.clearAnimation()
                             myAppVM.setLocation(location)
+                            if (CHECK_SERVICE) {
+                                mContext.stopService(Intent(mContext, GpsService::class.java))
+                            }
                         }
                     }, false)
                 }
@@ -110,7 +112,9 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
             override fun onServiceDisconnected(name: ComponentName) {
             }
         }
+        ContextCompat.startForegroundService(mContext, Intent(mContext, GpsService::class.java))
         mContext.bindService(gpsIntent, gpsServiceConnection, Context.BIND_AUTO_CREATE)
+        CHECK_SERVICE = true
     }
 
     private fun checkLocation(myAppVM: MyAppViewModel) {
@@ -132,7 +136,6 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
     }
 
     override fun onDestroy() {
-        mContext.stopService(Intent(mContext, GpsService::class.java))
         job.cancel()
         super.onDestroy()
     }
