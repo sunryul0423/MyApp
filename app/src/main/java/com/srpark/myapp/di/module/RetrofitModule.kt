@@ -20,7 +20,7 @@ class RetrofitModule {
         private const val CONNECT_TIMEOUT = 15L
         private const val WRITE_TIMEOUT = 15L
         private const val READ_TIMEOUT = 20L
-        private const val LOTTO_BASE_URL = "https://www.geniecontents.com/api/v1/"
+        private const val LOTTO_BASE_URL = "https://www.dhlottery.co.kr/"
         private const val WEATHER_BASE_URL = "https://apis.openapi.sk.com/weather/"
         private const val NAVER_BASE_URL = "https://openapi.naver.com/"
         private const val MOVIE_BASE_URL = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/"

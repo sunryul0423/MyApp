@@ -143,27 +143,23 @@ class MyAppFragment : BaseFragment<FragmentMyappBinding>() {
     private fun liveDataObserver(myAppVM: MyAppViewModel) {
         myAppVM.getLottoInfoResponse().observe(this, Observer { response ->
             viewBinding.cardLottoView.lottoView.tvLottoTitle.text =
-                String.format(getString(R.string.lotto_item_title), response.drawNo, response.drawDate)
+                String.format(getString(R.string.lotto_item_title), response.drwNo, response.drwNoDate)
 
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo1, response.num1)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo2, response.num2)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo3, response.num3)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo4, response.num4)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo5, response.num5)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo6, response.num6)
-            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoBonus, response.bonusNum)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo1, response.drwtNo1)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo2, response.drwtNo2)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo3, response.drwtNo3)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo4, response.drwtNo4)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo5, response.drwtNo5)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoNo6, response.drwtNo6)
+            setLottoValue(mContext, viewBinding.cardLottoView.lottoView.tvLottoBonus, response.bnusNo)
 
-            response.lottoResult
-                .filter { lottoResult -> RANK_FIRST == lottoResult.rank }
-                .map { lottoResult ->
-                    viewBinding.cardLottoView.tvWinnerCnt.text =
-                        String.format(getString(R.string.lotto_first_winner_count), lottoResult.winningCnt)
-                    viewBinding.cardLottoView.tvWinnerPrice.text =
-                        String.format(
-                            getString(R.string.lotto_first_winner_price),
-                            transDecimalWon(mContext, lottoResult.winningPriceByRank)
-                        )
-                }
+            viewBinding.cardLottoView.tvWinnerCnt.text =
+                String.format(getString(R.string.lotto_first_winner_count), response.firstPrzwnerCo)
+            viewBinding.cardLottoView.tvWinnerPrice.text =
+                String.format(
+                    getString(R.string.lotto_first_winner_price),
+                    transDecimalWon(mContext, response.firstWinamnt)
+                )
         })
 
         myAppVM.getWeatherResponse().observe(this, Observer { response ->

@@ -13,8 +13,8 @@ class AppPreference(context: Context) {
         }
     }
 
-    private var sharedPref: SharedPreferences = context.getSharedPreferences(context.packageName + "_preferences", MODE_PRIVATE)
-    private var sharedPrefEditor: SharedPreferences.Editor = sharedPref.edit()
+    private val sharedPref: SharedPreferences = context.getSharedPreferences(context.packageName + "_preferences", MODE_PRIVATE)
+    private val sharedPrefEditor: SharedPreferences.Editor = sharedPref.edit()
 
     var drwNo: Long
         get() = sharedPref.getLong("drwNo", 860L)

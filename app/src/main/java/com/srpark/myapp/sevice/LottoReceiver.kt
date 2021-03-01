@@ -90,16 +90,16 @@ class LottoReceiver : DaggerBroadcastReceiver() {
             }
 
             if (appPreference.drwNo != drwNo) {
-                lottoRetrofit.create(LottoApiRequest::class.java).lottoPrizeInfo(drwNo)
+                lottoRetrofit.create(LottoApiRequest::class.java).lottoWinPlace(drwNo)
                     .subscribeOn(Schedulers.io())
-                    .filter { res -> "200" == res.statusCode }
+                    .filter { res -> "success" == res.returnValue }
                     .observeOn(AndroidSchedulers.mainThread())
                     .map { res ->
-                        databaseRef.child(DatabaseConstant.LOTTO).child(DatabaseConstant.LAST_DATE).setValue(res.body.drawDate)
-                        databaseRef.child(DatabaseConstant.LOTTO).child(DatabaseConstant.LAST_NO).setValue(res.body.drawNo)
+                        databaseRef.child(DatabaseConstant.LOTTO).child(DatabaseConstant.LAST_DATE).setValue(res.drwNoDate)
+                        databaseRef.child(DatabaseConstant.LOTTO).child(DatabaseConstant.LAST_NO).setValue(res.drwNo)
                             .addOnSuccessListener {
-                                appPreference.drwNo = res.body.drawNo
-                                showNotification(res.body.drawNo)
+                                appPreference.drwNo = res.drwNo
+                                showNotification(res.drwNo)
                             }
                     }
                     .subscribe()

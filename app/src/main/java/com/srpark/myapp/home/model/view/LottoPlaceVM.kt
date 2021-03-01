@@ -12,17 +12,17 @@ import javax.inject.Inject
 
 class LottoPlaceVM @Inject constructor(@LottoRetrofit private val lottoApiRequest: LottoApiRequest) : BaseViewModel() {
 
-    private val winningPlaces = MutableLiveData<List<LottoInfoRes.Body.WinningPlaces>>()
+    private val winningPlaces = MutableLiveData<LottoInfoRes>()
 
     fun requestLottoApi(number: Long) {
         showProgress()
         addDisposable(
             lottoApiRequest.lottoWinPlace(number)
                 .subscribeOn(Schedulers.io())
-                .filter { res -> "200" == res.statusCode }
+                .filter { res -> "success" == res.returnValue }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    winningPlaces.value = response.body.winningPlaces
+                    winningPlaces.value = response
                     cancelProgress()
                 }, {
                     onError(it)
@@ -30,7 +30,7 @@ class LottoPlaceVM @Inject constructor(@LottoRetrofit private val lottoApiReques
         )
     }
 
-    fun getWinningPlaces(): LiveData<List<LottoInfoRes.Body.WinningPlaces>> {
+    fun getWinningPlaces(): LiveData<LottoInfoRes> {
         return winningPlaces
     }
 }

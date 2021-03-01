@@ -15,7 +15,7 @@ import com.srpark.myapp.utils.ActivityConstant.INTENT_MAP_DATA
 import com.srpark.myapp.utils.onClick
 import kotlinx.coroutines.Job
 
-class RvLottoPlaceAdapter(private val lottoResult: List<LottoInfoRes.Body.WinningPlaces>, private val job: Job) :
+class RvLottoPlaceAdapter(private val lottoResult: List<LottoInfoRes>, private val job: Job) :
     RecyclerView.Adapter<RvLottoPlaceAdapter.LottoPlaceViewHolder>() {
 
     companion object {
@@ -38,11 +38,12 @@ class RvLottoPlaceAdapter(private val lottoResult: List<LottoInfoRes.Body.Winnin
     }
 
     inner class LottoPlaceViewHolder(private val binding: ItemLottoPlaceBinding) : RecyclerView.ViewHolder(binding.root) {
-        internal fun setData(lottoResult: LottoInfoRes.Body.WinningPlaces) {
+        internal fun setData(lottoResult: LottoInfoRes) {
             val context = binding.root.context
-            binding.tvName.text = lottoResult.shopName
-            binding.tvAddress.text = lottoResult.address
-            getType(context, binding.tvType, lottoResult.gameType)
+            //TODO 정보 수정
+//            binding.tvName.text = lottoResult.shopName
+//            binding.tvAddress.text = lottoResult.address
+//            getType(context, binding.tvType, lottoResult.gameType)
             binding.ivLocation.onClick(job = job) {
                 val intent = Intent(context, MapViewActivity::class.java).apply {
                     putExtra(INTENT_MAP_DATA, lottoResult)

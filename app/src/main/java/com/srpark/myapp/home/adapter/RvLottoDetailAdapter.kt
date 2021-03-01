@@ -14,7 +14,7 @@ import com.srpark.myapp.utils.RetrofitConstant.RANK_SECOND
 import com.srpark.myapp.utils.RetrofitConstant.RANK_THIRD
 import com.srpark.myapp.utils.transDecimalWon
 
-class RvLottoDetailAdapter(private val lottoResult: List<LottoInfoRes.Body.LottoResult>) :
+class RvLottoDetailAdapter(private val lottoResult: List<LottoInfoRes>) :
     RecyclerView.Adapter<RvLottoDetailAdapter.LottoDetailViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LottoDetailViewHolder {
         val binding = ItemLottoDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -30,20 +30,21 @@ class RvLottoDetailAdapter(private val lottoResult: List<LottoInfoRes.Body.Lotto
     }
 
     inner class LottoDetailViewHolder(private val binding: ItemLottoDetailBinding) : RecyclerView.ViewHolder(binding.root) {
-        internal fun setData(lottoResult: LottoInfoRes.Body.LottoResult) {
+        internal fun setData(lottoResult: LottoInfoRes) {
             val context = binding.root.context
-            binding.tvRank.apply {
-                text = String.format(context.getString(R.string.lotto_winner_rank), getRanking(lottoResult.rank))
-                setTextColor(ContextCompat.getColor(context, android.R.color.white))
-            }
-            binding.tvWinnerCnt.apply {
-                text = String.format(context.getString(R.string.lotto_winner_count), lottoResult.winningCnt)
-                setTextColor(ContextCompat.getColor(context, android.R.color.white))
-            }
-            binding.tvWinnerPrice.apply {
-                text = transDecimalWon(context, lottoResult.winningPriceByRank)
-                setTextColor(ContextCompat.getColor(context, android.R.color.white))
-            }
+            //TODO 정보 수정
+//            binding.tvRank.apply {
+//                text = String.format(context.getString(R.string.lotto_winner_rank), getRanking(lottoResult.rank))
+//                setTextColor(ContextCompat.getColor(context, android.R.color.white))
+//            }
+//            binding.tvWinnerCnt.apply {
+//                text = String.format(context.getString(R.string.lotto_winner_count), lottoResult.winningCnt)
+//                setTextColor(ContextCompat.getColor(context, android.R.color.white))
+//            }
+//            binding.tvWinnerPrice.apply {
+//                text = transDecimalWon(context, lottoResult.winningPriceByRank)
+//                setTextColor(ContextCompat.getColor(context, android.R.color.white))
+//            }
         }
     }
 

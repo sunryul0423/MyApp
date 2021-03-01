@@ -42,7 +42,7 @@ class MyAppViewModel @Inject constructor(
         private const val LON = "lon"
     }
 
-    private val lottoInfoResponse = MutableLiveData<LottoInfoRes.Body>()
+    private val lottoInfoResponse = MutableLiveData<LottoInfoRes>()
     private val weatherResponse = MutableLiveData<WeatherResponse.Weather.Minutely>()
     private val databaseRef = FirebaseDatabase.getInstance().reference
 
@@ -101,14 +101,14 @@ class MyAppViewModel @Inject constructor(
     private tailrec fun requestLottoApi(number: Long) {
         showProgress()
         addDisposable(
-            lottoApiRequest.lottoPrizeInfo(number)
+            lottoApiRequest.lottoWinPlace(number)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ response ->
-                    if (response.resultCode == "R41001") {
+                    if (response.returnValue == "fail") {
                         requestLottoApi(number.minus(1))
                     } else {
-                        lottoInfoResponse.value = response.body
+                        lottoInfoResponse.value = response
                         cancelProgress()
                     }
                 }, {
@@ -180,7 +180,7 @@ class MyAppViewModel @Inject constructor(
         }
     }
 
-    fun getLottoInfoResponse(): LiveData<LottoInfoRes.Body> {
+    fun getLottoInfoResponse(): LiveData<LottoInfoRes> {
         return lottoInfoResponse
     }
 

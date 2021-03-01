@@ -18,29 +18,31 @@ class MapViewActivity : BaseActivity<ActivityMapBinding>() {
         super.onCreate(savedInstanceState)
         setToolbar(viewBinding.toolbar.toolbar)
         viewBinding.lifecycleOwner = this
-        val lottoResult = intent.getSerializableExtra(INTENT_MAP_DATA) as LottoInfoRes.Body.WinningPlaces
-        viewBinding.toolbar.toolbarTitle.text = lottoResult.address
-        viewBinding.mapView.apply {
-            val intentPoint = MapPoint.mapPointWithGeoCoord(lottoResult.lat, lottoResult.lng)
-            // 중심점 변경
-            setMapCenterPoint(intentPoint, true)
-            // 줌 레벨 변경
-            setZoomLevel(2, true)
-            // 중심점 변경 + 줌 레벨 변경
-            setMapCenterPointAndZoomLevel(intentPoint, 2, true)
-            // 줌 인
-            zoomIn(true)
-            // 줌 아웃
-            zoomOut(true)
-
-            val marker = MapPOIItem().apply {
-                mapPoint = intentPoint
-                itemName = lottoResult.shopName
-                tag = 0
-                markerType = MapPOIItem.MarkerType.BluePin
-                selectedMarkerType = MapPOIItem.MarkerType.RedPin
-            }
-            addPOIItem(marker)
-        }
+        val lottoResult = intent.getSerializableExtra(INTENT_MAP_DATA) as LottoInfoRes
+        //TODO 정보 수정
+//        viewBinding.toolbar.toolbarTitle.text = lottoResult.address
+//        viewBinding.mapView.apply {
+//
+//            val intentPoint = MapPoint.mapPointWithGeoCoord(lottoResult.lat, lottoResult.lng)
+//            // 중심점 변경
+//            setMapCenterPoint(intentPoint, true)
+//            // 줌 레벨 변경
+//            setZoomLevel(2, true)
+//            // 중심점 변경 + 줌 레벨 변경
+//            setMapCenterPointAndZoomLevel(intentPoint, 2, true)
+//            // 줌 인
+//            zoomIn(true)
+//            // 줌 아웃
+//            zoomOut(true)
+//
+//            val marker = MapPOIItem().apply {
+//                mapPoint = intentPoint
+//                itemName = lottoResult.shopName
+//                tag = 0
+//                markerType = MapPOIItem.MarkerType.BluePin
+//                selectedMarkerType = MapPOIItem.MarkerType.RedPin
+//            }
+//            addPOIItem(marker)
+//        }
     }
 }
